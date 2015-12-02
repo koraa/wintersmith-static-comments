@@ -2,15 +2,14 @@
 - var email = locals.comment_email.split('@');
 - var mailto = email[0] + '+' + url + '@' + email[1];
 
+- function keys(o) { var a=[]; for (var k in o) a.push(k); return a; };
+
 section#comments
   h2 Comments
 
-  a(href='mailto:'+mailto+'?subject='+page.title, target='_blank')
-    | Write a comment.
-
-  if _.has(contents.comments, url)
+  if contents.comments[url]
     - var index = 1;
-    for comment in _.keys(contents.comments[url]).sort()
+    for comment in keys(contents.comments[url]).sort()
       - comment = contents.comments[url][comment]
       include comment
       - index++;
