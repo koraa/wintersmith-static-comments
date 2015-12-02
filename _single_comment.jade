@@ -1,13 +1,13 @@
 - var permalink = 'comment' + index;
 
-blockquote(id=permalink,
-  class="#{comment._metadata.reply ? 'comment reply' : 'comment'}")
-  | !{comment._content}
-  p
-    small
-      if comment._metadata.url
-        a(href=comment._metadata.url)=comment._metadata.name
+div(id=permalink, class="#{comment.metadata.reply ? 'comment reply' : 'comment'}")
+  .comment-meta
+    h3.comment-name
+      if comment.metadata.url
+        a(href=comment.metadata.url)= comment.metadata.name
       else
-        =comment._metadata.name
-      | , 
-      a(href='\##{permalink}')=comment._metadata.date
+        = comment.metadata.name
+    span.comment-date= comment.metadata.date
+
+  .comment-body
+    !{comment.html}
