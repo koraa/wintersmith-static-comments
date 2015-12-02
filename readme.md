@@ -11,6 +11,7 @@
         }
 
 3. Include `wintersmith-static-comments/comments.jade` in your main template
+4. Include `wintersmith-static-comments/comments-overview.jade` in your listing template and export "post" as the current post.
 4. Create a directory tree within your `contents` directory in the form:
 
         comments

@@ -1,0 +1,15 @@
+- var url = post.url.substring(page.url.indexOf('/') + 1).replace(/\//g, '-');
+- function keys(o) { var a=[]; for (var k in o) a.push(k); return a; };
+
+section.comments-overview
+  .comment-number
+    - var comment_no = contents.comments[url] ?  keys(contents.comments[url]).length : 0;
+    if comment_no == 0
+      | No Comment
+    else if comment_no == 1
+      | 1 Comment
+    else
+      !{comment_no}
+      | Comments
+  a.write-a-comment(href='mailto:'+mailto+'?subject='+page.title)
+    | Write a comment.
