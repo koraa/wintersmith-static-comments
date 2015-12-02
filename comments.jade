@@ -5,6 +5,9 @@
 section#comments
   h2 Comments
 
+  a(href='mailto:'+mailto+'?subject='+page.title, target='_blank')
+    | Write a comment.
+
   if _.has(contents.comments, url)
     - var index = 1;
     for comment in _.keys(contents.comments[url]).sort()
@@ -12,7 +15,5 @@ section#comments
       include comment
       - index++;
 
-  p
-    | Have something to add? Leave a 
-    a(href='mailto:'+mailto+'?subject='+page.title, target='_blank') comment
-    | .
+  a.write-a-comment(href='mailto:'+mailto+'?subject='+page.title)
+    | Write a comment.
